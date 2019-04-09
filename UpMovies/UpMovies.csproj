@@ -16,5 +16,38 @@
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.5.870-pre" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.5.870-pre" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.5.870-pre" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Enum\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Languages\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Renderers\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Local\" />
+    <Folder Include="Services\Remote\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Alerts\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Alerts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Languages\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Languages\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

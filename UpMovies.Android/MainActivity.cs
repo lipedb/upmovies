@@ -24,17 +24,9 @@ namespace UpMovies.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Instance = this;
-
-            CrossCurrentActivity.Current.Init(this, savedInstanceState);
-            base.Window.RequestFeature(WindowFeatures.ActionBar);
-            base.SetTheme(Resource.Style.MainTheme);
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
-            {
-                Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
-                Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-            }
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             base.OnCreate(savedInstanceState);
 

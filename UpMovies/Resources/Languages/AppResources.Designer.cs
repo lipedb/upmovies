@@ -70,5 +70,35 @@ namespace UpMovies.Resources.Languages {
                 return ResourceManager.GetString("SearchBarPlaceholder", resourceCulture);
             }
         }
+        
+        internal static string HomePageTitle {
+            get {
+                return ResourceManager.GetString("HomePageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string DetailPageTitle {
+            get {
+                return ResourceManager.GetString("DetailPageTitle", resourceCulture);
+            }
+        }
+        
+        internal static string Sinopsis {
+            get {
+                return ResourceManager.GetString("Sinopsis", resourceCulture);
+            }
+        }
+        
+        internal static string NoInformation {
+            get {
+                return ResourceManager.GetString("NoInformation", resourceCulture);
+            }
+        }
+        
+        internal static string Genres {
+            get {
+                return ResourceManager.GetString("Genres", resourceCulture);
+            }
+        }
     }
 }

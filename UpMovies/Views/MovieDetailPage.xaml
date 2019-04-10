@@ -3,9 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="UpMovies.Views.MovieDetailPage"
              xmlns:behavior="clr-namespace:UpMovies.Behaviors;assembly=UpMovies"
+             xmlns:localization="clr-namespace:UpMovies.Extensions;assembly=UpMovies"
              xmlns:controls="clr-namespace:UpMovies.Controls;Assembly:UpMovies"
-             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             Title="Movie Detail">
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Spacing="10">
+            <Label Text="{localization:TranslateExtension DetailPageTitle}" FontSize="16" TextColor="White" VerticalTextAlignment="Center" />
+        </StackLayout>
+    </NavigationPage.TitleView>    
     <ContentPage.Content>
             <controls:NoBounceScrollView
                 VerticalScrollBarVisibility="Never"

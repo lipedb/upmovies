@@ -27,6 +27,9 @@
     <data name="HomePageTitle" xml:space="preserve">
         <value>Upcoming Movies</value>
     </data>
+    <data name="DetailPageTitle" xml:space="preserve">
+        <value>Movie Information</value>
+    </data>    
     <data name="Sinopsis" xml:space="preserve">
         <value>Sinopsis: </value>
     </data>    
@@ -35,5 +38,5 @@
     </data>
     <data name="Genres" xml:space="preserve">
         <value>Genres: </value>
-    </data>        
+    </data>     
 </root>

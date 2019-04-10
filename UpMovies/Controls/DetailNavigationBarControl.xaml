@@ -9,15 +9,8 @@
                              Padding="5,0,29,0"
                              BackgroundColor="Black"
                              HorizontalOptions="FillAndExpand">
-                <Label Text="&#xf053;" 
-                       Style="{StaticResource FontAwesomeSolid}" 
-                       IsVisible="true" 
-                       TextColor="White" 
-                       HorizontalOptions="Start" 
-                       VerticalOptions="Center" 
-                       FontSize="24" 
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center"/>
+        <!-- Just Real quick, here we could setup anything from custom icons to logo and also be more efficient handling tablets for example. -->
+
                 <Label x:Name="title"
                        FontSize="20"
                        HorizontalTextAlignment="Center"

@@ -15,4 +15,26 @@
             <Setter Property="FontSize" Value="24" />
     </Style>
     
+    <!--Movie Detail Image Background style-->
+    <Style x:Key="CoverBackgroundStyle" TargetType="Image">
+        <Setter Property="HeightRequest" Value="200" />
+        <Setter Property="Aspect" Value="AspectFill" />
+        <Setter Property="VerticalOptions" Value="End" />
+    </Style>
+    
+    <Style x:Key="DetailTitleStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Margin" Value="6, 0" />
+    </Style>
+    
+    <Style x:Key="DetailDescriptionStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Margin" Value="6, 0" />
+    </Style>
+    
+    <Style x:Key="DurationTextStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Margin" Value="6, 0" />
+    </Style>
+    
 </ResourceDictionary>

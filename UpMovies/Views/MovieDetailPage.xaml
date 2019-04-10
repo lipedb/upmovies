@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="UpMovies.Views.MovieDetailPage"
+             xmlns:behavior="clr-namespace:UpMovies.Behaviors;assembly=UpMovies"
+             xmlns:controls="clr-namespace:UpMovies.Controls;Assembly:UpMovies"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="Movie Detail">
+    <ContentPage.Content>
+            <controls:NoBounceScrollView
+                VerticalScrollBarVisibility="Never"
+                BackgroundColor="Black"
+                x:Name="ParallaxScroll" 
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand">
+                <Grid
+                    RowSpacing="0"
+                    VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid
+                        Grid.Row="0">
+                        <ffimageloading:CachedImage     
+                            Source="{Binding BackgroundImage}" 
+                            Aspect="AspectFill"
+                            HeightRequest="250"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Start"
+                            Opacity=".8">
+                            <ffimageloading:CachedImage.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <On Platform="Android" Value="200" />
+                                    <On Platform="iOS" Value="275" />
+                                </OnPlatform>
+                            </ffimageloading:CachedImage.HeightRequest>
+                        </ffimageloading:CachedImage>
+                    </Grid>
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 BackgroundColor="{StaticResource BackgroundColor}"
+                                 Spacing="10"
+                                 Grid.Row="1">
+                        <Label 
+                            Text="{Binding Title}"
+                            Style="{StaticResource DetailTitleStyle}"
+                            TextColor="{StaticResource TitleTextColor}"
+                            VerticalOptions="Start"/>
+                        <Grid
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label 
+                                Grid.Column="0"
+                                Text="{Binding Date}"
+                                Style="{StaticResource DurationTextStyle}"
+                                TextColor="{StaticResource MovieInfoTextColor}"/>
+                            <Label 
+                                Grid.Column="1"
+                                Text="{Binding Popularity}"
+                                HorizontalOptions="End"
+                                Style="{StaticResource DurationTextStyle}"
+                                TextColor="{StaticResource MovieInfoTextColor}"/>
+                        </Grid>   
+                        <Label 
+                            Text="{Binding Description}"
+                            VerticalOptions="Start"
+                            Style="{StaticResource DetailDescriptionStyle}"
+                            TextColor="White"/>
+                        <Label 
+                            Text="{Binding Genres}"
+                            VerticalOptions="End"
+                            Style="{StaticResource DurationTextStyle}"
+                            TextColor="{StaticResource MovieInfoTextColor}"/>
+                                           
+                    </StackLayout>
+                </Grid>
+            </controls:NoBounceScrollView>
+    </ContentPage.Content>
+</ContentPage>

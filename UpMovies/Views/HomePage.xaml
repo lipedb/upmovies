@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:localization="clr-namespace:UpMovies.Extensions;assembly=UpMovies"
              xmlns:behavior="clr-namespace:UpMovies.Behaviors;assembly=UpMovies"
+             xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
              xmlns:cell="clr-namespace:UpMovies.Views.ViewCells;assembly:UpMovies"
              xmlns:controls="clr-namespace:UpMovies.Controls;Assembly:UpMovies"
              xmlns:renderers="clr-namespace:UpMovies.Renderers"
@@ -15,15 +16,15 @@
                       Spacing="0"
                       HorizontalOptions="FillAndExpand"
                       VerticalOptions="FillAndExpand"
-                      Style="{StaticResource SafeAreaFooter}"
                       BackgroundColor="White">
                     <controls:DetailNavigationBarControl 
-                                TitleText=" Move Details"/>
-                    <Frame Grid.Row="0" HorizontalOptions="FillAndExpand" 
+                                TitleText="{localization:TranslateExtension HomePageTitle}"/>
+                    <Frame HorizontalOptions="FillAndExpand" 
                            VerticalOptions="StartAndExpand" 
                            BorderColor="Gray" 
                            Padding="0" 
-                           Margin="0">
+                           Margin="0"
+                           IsVisible="false">
                         <renderers:CustomSearchbar x:Name="SearchBar"
                                    SearchCommand="{Binding SearchCommand}"
                                    SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
@@ -40,9 +41,12 @@
                     <ListView x:Name="MoviesListView"
                               AutomationId="MoviesListView"
                               HasUnevenRows="True"
+                              behavior:ItemTappedListViewBehavior.ItemTappedCommand="{Binding MenuItemSelectedCommand}"
+                              ItemsSource="{Binding MovieLists}"
                               HorizontalOptions="FillAndExpand"
                               VerticalOptions="FillAndExpand"
                               CachingStrategy="RecycleElement"
+                              Margin="0"
                               RowHeight="80">
 
                         <ListView.ItemTemplate>
@@ -50,6 +54,12 @@
                                 <cell:MovieItemCell/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
+                        <behaviors:Interaction.Behaviors>
+                          <behaviors:BehaviorCollection>
+                            <behaviors:EventToCommand EventName="ItemAppearing" 
+                                                      Command="{Binding LoadCommand}" />
+                          </behaviors:BehaviorCollection>
+                        </behaviors:Interaction.Behaviors>
                 </ListView>
         </StackLayout>
 </ContentPage>

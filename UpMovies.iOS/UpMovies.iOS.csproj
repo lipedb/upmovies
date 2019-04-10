@@ -97,6 +97,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DependencyServices\Localize.cs" />
     <Compile Include="Renderers\SnackBarNotificationRender.cs" />
+    <Compile Include="Renderers\NoBounceScrollViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

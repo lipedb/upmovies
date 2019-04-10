@@ -41,6 +41,7 @@ namespace UpMovies
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<MovieDetailPage, MovieDetailViewModel>(NavigateTo.MovieDetail);
         }
 
         private void RegisterServices(IContainerRegistry containerRegistry)

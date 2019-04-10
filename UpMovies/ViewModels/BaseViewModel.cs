@@ -12,7 +12,7 @@ namespace UpMovies.ViewModels
     public class BaseViewModel : BindableBase, INavigationAware, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
-        private bool _isInternetConnected;
+        private bool _isInternetConnected = true;
         public bool IsInternetConnected
         {
             get { return _isInternetConnected; }
@@ -64,13 +64,28 @@ namespace UpMovies.ViewModels
             IsInternetConnected = e.NetworkAccess == NetworkAccess.Internet;
             if (IsInternetConnected)
             {
-                DependencyService.Get<ISnackBarNotification>().SnackbarDismiss();
-
+                DismissAlert();
             }
             else
             {
-                DependencyService.Get<ISnackBarNotification>().SnackbarShow("Offline!", String.Empty);
+                ShowOfflineAlert();
+                OnInternetAvailable();
             }
+
+        }
+
+        protected void ShowOfflineAlert()
+        {
+            DependencyService.Get<ISnackBarNotification>().SnackbarShow("Offline!", String.Empty);
+        }
+
+        protected void DismissAlert()
+        {
+            DependencyService.Get<ISnackBarNotification>().SnackbarDismiss();
+        }
+
+        public virtual void OnInternetAvailable()
+        {
 
         }
 
@@ -82,6 +97,11 @@ namespace UpMovies.ViewModels
         protected Busy SetIsBusy(string message = "")
         {
             return new Busy(this, message);
+        }
+
+        protected bool CanExecuteSubmit()
+        {
+            return !IsBusy;
         }
 
         protected class Busy : IDisposable

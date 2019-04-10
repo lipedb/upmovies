@@ -23,5 +23,17 @@
     </data>  
     <data name="SearchBarPlaceholder" xml:space="preserve">
         <value>Search movies</value>
-    </data>      
+    </data>
+    <data name="HomePageTitle" xml:space="preserve">
+        <value>Upcoming Movies</value>
+    </data>
+    <data name="Sinopsis" xml:space="preserve">
+        <value>Sinopsis: </value>
+    </data>    
+    <data name="NoInformation" xml:space="preserve">
+        <value>No information</value>
+    </data>
+    <data name="Genres" xml:space="preserve">
+        <value>Genres: </value>
+    </data>        
 </root>

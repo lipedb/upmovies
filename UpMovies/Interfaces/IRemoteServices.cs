@@ -11,5 +11,8 @@ namespace UpMovies.Interfaces
     {
         [Get("/3/discover/movie")]
         Task<string> UpcomingMovies(UpcomingMoviesRequest upcomingMoviesRequest);
+
+        [Get("/3/genre/movie/list")]
+        Task<string> ListGenres(BaseRequest baseRequest);
     }
 }

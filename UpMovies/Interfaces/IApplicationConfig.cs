@@ -5,5 +5,6 @@ namespace UpMovies.Interfaces
     {
         string ProjectName { get; set; }
         string Mode { get; set; }
+        string GenreList { get; set; }
     }
 }

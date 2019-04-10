@@ -30,5 +30,9 @@
 
         //Date Paramter to consume API
         public const string ApiDate = "now";
+
+
+        public const string ObjectDetail = "ObjectDetail";
+
     }
 }

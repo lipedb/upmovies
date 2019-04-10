@@ -25,8 +25,31 @@ namespace UpMovies.Services.Remote
             try
             {
                 response = await remoteServices.UpcomingMovies(upcomingMoviesRequest);
-                string parsedResponse = ExtensionMethods.FixApiResponseString(response);
-                return parsedResponse;
+                //string parsedResponse = ExtensionMethods.FixApiResponseString(response);
+                return response;
+            }
+            catch (Exception ex)
+            {
+                //var statusCode = ex.StatusCode;
+                ErrorResponse errorResponse = new ErrorResponse
+                {
+                    Message = ex.ToString()
+                };
+                return errorResponse.Message;
+            }
+        }
+
+        public static async Task<string> RetriveGenresFromServerAsync()
+        {
+            string response = String.Empty;
+            IRemoteServices remoteServices;
+            remoteServices = RestService.For<IRemoteServices>(AppConstants.ApiURL);
+            BaseRequest baseRequest = new BaseRequest();
+            try
+            {
+                response = await remoteServices.ListGenres(baseRequest);
+                //string parsedResponse = ExtensionMethods.FixApiResponseString(response);
+                return response;
             }
             catch (Exception ex)
             {

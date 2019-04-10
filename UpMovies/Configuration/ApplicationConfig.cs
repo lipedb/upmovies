@@ -37,5 +37,21 @@ namespace UpMovies.Configuration
                 Preferences.Set(nameof(Mode), value);
             }
         }
+
+        //Genre Saved as String Json
+        private string _genreList;
+        public string GenreList
+        {
+            get
+            {
+                _genreList = Preferences.Get(nameof(GenreList), String.Empty);
+                return _genreList;
+            }
+            set
+            {
+                _genreList = value;
+                Preferences.Set(nameof(GenreList), value);
+            }
+        }
     }
 }

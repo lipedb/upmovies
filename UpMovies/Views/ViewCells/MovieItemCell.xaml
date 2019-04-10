@@ -8,18 +8,40 @@
     <ViewCell.View>
         <StackLayout BackgroundColor="#eee"
                      Orientation="Vertical">
-            <StackLayout Orientation="Horizontal">
-                <ffimageloading:CachedImage HorizontalOptions="Center" 
+            <Grid RowSpacing="0"
+                  ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+                <ffimageloading:CachedImage Grid.Column="0"
+                                            HorizontalOptions="Center" 
                                             VerticalOptions="Center"
                                             WidthRequest="100" 
                                             HeightRequest="100"
-                                            Source="{Binding image}" />
-                <Label Text="{Binding title}"
-                       TextColor="#f35e20" />
-                <Label Text="{Binding subtitle}"
-                       HorizontalOptions="EndAndExpand"
-                       TextColor="#503026" />
-            </StackLayout>
+                                            Source="{Binding ImageURL}" />
+                <Label Text="{Binding Title}"
+                       TextColor="#f35e20"
+                       HorizontalTextAlignment="Center"
+                       Grid.Column="1"/>
+                <StackLayout Orientation="Vertical"
+                             VerticalOptions="FillAndExpand"
+                             HorizontalOptions="FillAndExpand"
+                             Grid.Column="2">
+                    <Label Text="{Binding ReleaseDate}"
+                           HorizontalOptions="EndAndExpand"
+                           TextColor="#503026"
+                           VerticalOptions="Start"/>
+                           
+                    <Label Text="{Binding Genre}"
+                           HorizontalOptions="EndAndExpand"
+                           TextColor="Gray"
+                           FontSize="8"
+                           VerticalOptions="StartAndExpand"
+                           Margin="0,5,5,0"/>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </ViewCell.View>
 </ViewCell>

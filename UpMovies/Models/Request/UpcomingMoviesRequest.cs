@@ -3,14 +3,10 @@ using UpMovies.Common;
 
 namespace UpMovies.Models
 {
-    public class UpcomingMoviesRequest
+    public class UpcomingMoviesRequest : BaseRequest
     {
-        [AliasAs("api_key")]
-        public string ApiKey { get => AppConstants.ApiKey;}
         [AliasAs("page")]
         public string Page { get; set; }
-        [AliasAs("language")] 
-        public string Language { get => AppConstants.ApiLanguage; }
         [AliasAs("sort_by")] 
         public string SortBy { get => AppConstants.ApiSort; }
         [AliasAs("include_adult")]

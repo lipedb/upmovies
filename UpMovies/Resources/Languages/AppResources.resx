@@ -20,5 +20,8 @@
     </data>
     <data name="StringUtilsSpace" xml:space="preserve">
         <value> </value>
-    </data>    
+    </data>  
+    <data name="SearchBarPlaceholder" xml:space="preserve">
+        <value>Search movies</value>
+    </data>      
 </root>

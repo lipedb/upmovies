@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FFImageLoading.Forms.Platform;
+using FFImageLoading.Svg.Forms;
 using Foundation;
 using UIKit;
 
@@ -23,9 +24,22 @@ namespace UpMovies.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            var svgAssembly = typeof(SvgCachedImage).Assembly;
+            CachedImageRenderer.Init();
+            new FFImageLoading.Transformations.TintTransformation();
+
+            UIColor barTintColor = UIColor.FromRGBA(29, 29, 29, 1);
+            UIColor textTintColor = UIColor.FromRGB(254, 254, 254);
+            UINavigationBar.Appearance.BarTintColor = barTintColor;
+            UINavigationBar.Appearance.TintColor = textTintColor;
+
+            var ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
+            var ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }
     }
 }
+

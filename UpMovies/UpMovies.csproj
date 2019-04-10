@@ -38,6 +38,11 @@
     <Folder Include="Views\Alerts\" />
     <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\Alerts\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Response\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Views\ViewCells\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\Languages\AppResources.resx">

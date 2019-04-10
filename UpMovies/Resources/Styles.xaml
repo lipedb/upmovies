@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="UpMovies.Resources.Styles">
+    
+    <!--SafeArea to iOS and Android new Notch -->
+    <Style x:Key="SafeAreaFooter" TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Padding" Value="0,0,0,34" />
+    </Style>
+    
+    <!--Navigation bar style -->
+    <Style x:Key="NavigationPageTextStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="24" />
+    </Style>
+    
+</ResourceDictionary>

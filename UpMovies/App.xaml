@@ -1,5 +1,50 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="UpMovies.App">
+<prism:PrismApplication 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+    xmlns:controls="clr-namespace:UpMovies.Controls;Assembly:UpMovies"
+    xmlns:localization="clr-namespace:UpMovies.Extensions;assembly=UpMovies"
+    xmlns:resources="clr-namespace:UpMovies.Resources;assembly=UpMovies"
+    xmlns:converters="clr-namespace:UpMovies.Converters;assembly=UpMovies"
+    x:Class="UpMovies.App">
     <Application.Resources>
+        <!--  Application resource dictionary  -->
+        <ResourceDictionary>
+            <!-- Converters -->
+            <converters:InverseBoolConverter x:Key="BooleanInverse" />
+            <converters:StringToSvgResourceConverter x:Key="StringToSvgResourceConverter" />
+            
+            <!-- No Connectivity Layout Overlay Only is here thinking on a future implementation-->
+            <ControlTemplate x:Key="NoConnectivityTemplate">
+                <Grid RowSpacing="0" Padding="0" Margin="0">
+                    <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <controls:AnimatedLabel Grid.Column="0"
+                         Grid.Row="0" 
+                         Text="{localization:TranslateExtension ThereNoInternetConnectionContentAlert}" 
+                         VerticalOptions="FillAndExpand"
+                         HorizontalTextAlignment="Center"
+                         VerticalTextAlignment="Center" 
+                         HeightRequest="50"
+                         IsVisible="false"
+                         IsVisibleAnimated="{TemplateBinding Parent.BindingContext.IsInternetConnected,
+                         Converter={StaticResource InverseBoolConverter}}" 
+                         TextColor="White" 
+                         BackgroundColor="Coral"/>
+                    <ContentPresenter Grid.Column="0" Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0" Padding="0"/>
+                 </Grid>
+            </ControlTemplate>
+            
+            <!--  Merged resource dictionaries  -->
+            <ResourceDictionary.MergedDictionaries> 
+                <resources:Colors />
+                <resources:Fonts />
+                <resources:Styles />
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
     </Application.Resources>
-</Application>
+    
+</prism:PrismApplication>

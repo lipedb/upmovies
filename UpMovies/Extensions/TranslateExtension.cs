@@ -13,7 +13,7 @@ namespace UpMovies.Extensions
     public class TranslateExtension : IMarkupExtension
     {
         readonly CultureInfo cultureInformation = null;
-        const string ResourceId = "InventoryApp.Resources.Languages.AppResources";
+        const string ResourceId = "UpMovies.Resources.Languages.AppResources";
 
         private static readonly Lazy<ResourceManager> LocaleResourceManager = new Lazy<ResourceManager>(() => new ResourceManager(ResourceId, typeof(AppResources).GetTypeInfo().Assembly));
 

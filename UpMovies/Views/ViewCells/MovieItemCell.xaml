@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"          
+             x:Class="UpMovies.Views.ViewCells.MovieItemCell">
+    <ViewCell.View>
+        <StackLayout BackgroundColor="#eee"
+                     Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <ffimageloading:CachedImage HorizontalOptions="Center" 
+                                            VerticalOptions="Center"
+                                            WidthRequest="100" 
+                                            HeightRequest="100"
+                                            Source="{Binding image}" />
+                <Label Text="{Binding title}"
+                       TextColor="#f35e20" />
+                <Label Text="{Binding subtitle}"
+                       HorizontalOptions="EndAndExpand"
+                       TextColor="#503026" />
+            </StackLayout>
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>

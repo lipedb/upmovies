@@ -35,6 +35,15 @@ namespace UpMovies.Extensions
             if (string.IsNullOrEmpty(str)) return string.Empty;
             return Regex.Replace(str, EmptyStringRegex, "");
         }
+
+        public static string FixApiResponseString(string input)
+        {
+            input = input.Replace("\\", string.Empty);
+            input = input.Replace("\"", string.Empty);
+            input = input.Trim('"');
+            input = Regex.Replace(input, @"[^\u0020-\u007E]", string.Empty);
+            return input;
+        }
     }
 }
 

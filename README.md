@@ -37,7 +37,7 @@ MVVM + Behaviors + Async
 
 Last: Run it! 
 
-### Pending things (No enought time):
+### Pending things (No enough time):
 
 * Make a Launcher Screen to the App
 

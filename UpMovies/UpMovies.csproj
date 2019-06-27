@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.293080" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />
+    <PackageReference Include="Refit" Version="4.6.99" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.5.870-pre" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.5.870-pre" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.5.870-pre" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="Corcav.Behaviors" Version="2.3.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Enum\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Languages\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Renderers\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Local\" />
+    <Folder Include="Services\Remote\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Alerts\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Alerts\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Response\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Views\ViewCells\" />
+    <Folder Include="Models\Adapters\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Languages\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Languages\AppResources.Designer.cs">
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

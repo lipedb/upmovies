@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="UpMovies.Controls.DetailNavigationBarControl">
+            <StackLayout Orientation="Horizontal" 
+                             VerticalOptions="Center" 
+                             Spacing="0"
+                             HeightRequest="50"
+                             Padding="5,0,29,0"
+                             BackgroundColor="Black"
+                             HorizontalOptions="FillAndExpand">
+        <!-- Just Real quick, here we could setup anything from custom icons to logo and also be more efficient handling tablets for example. -->
+
+                <Label x:Name="title"
+                       FontSize="20"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"
+                       TextColor="White"/>
+            </StackLayout>
+</ContentView>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:UpMovies.Extensions;assembly=UpMovies"
+             xmlns:behavior="clr-namespace:UpMovies.Behaviors;assembly=UpMovies"
+             xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+             xmlns:cell="clr-namespace:UpMovies.Views.ViewCells;assembly:UpMovies"
+             xmlns:controls="clr-namespace:UpMovies.Controls;Assembly:UpMovies"
+             xmlns:renderers="clr-namespace:UpMovies.Renderers"
+             x:Class="UpMovies.Views.HomePage"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="Black">
+         <StackLayout Orientation="Vertical"
+                      Spacing="0"
+                      HorizontalOptions="FillAndExpand"
+                      VerticalOptions="FillAndExpand"
+                      BackgroundColor="White">
+                    <controls:DetailNavigationBarControl 
+                                TitleText="{localization:TranslateExtension HomePageTitle}"/>
+                    <Frame HorizontalOptions="FillAndExpand" 
+                           VerticalOptions="StartAndExpand" 
+                           BorderColor="Gray" 
+                           Padding="0" 
+                           Margin="0"
+                           IsVisible="false">
+                        <renderers:CustomSearchbar x:Name="SearchBar"
+                                   SearchCommand="{Binding SearchCommand}"
+                                   SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+                                   PlaceholderColor="Gray"
+                                   HeightRequest="50"                
+                                   Placeholder="{localization:TranslateExtension SearchBarPlaceholder}"
+                                   VerticalOptions="Start"
+                                   HorizontalOptions="FillAndExpand">
+                            <SearchBar.Behaviors>
+                                <behavior:TextChangedBehavior />
+                            </SearchBar.Behaviors>
+                        </renderers:CustomSearchbar>
+                     </Frame>
+                    <ListView x:Name="MoviesListView"
+                              AutomationId="MoviesListView"
+                              HasUnevenRows="True"
+                              behavior:ItemTappedListViewBehavior.ItemTappedCommand="{Binding MenuItemSelectedCommand}"
+                              ItemsSource="{Binding MovieLists}"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="FillAndExpand"
+                              CachingStrategy="RecycleElement"
+                              Margin="0"
+                              RowHeight="80">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <cell:MovieItemCell/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <behaviors:Interaction.Behaviors>
+                          <behaviors:BehaviorCollection>
+                            <behaviors:EventToCommand EventName="ItemAppearing" 
+                                                      Command="{Binding LoadCommand}" />
+                          </behaviors:BehaviorCollection>
+                        </behaviors:Interaction.Behaviors>
+                </ListView>
+        </StackLayout>
+</ContentPage>
